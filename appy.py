@@ -104,7 +104,7 @@ def main():
                                 ('Normal watchlist', 'Expressions watchlist'))
 
     if watchlist_choice == 'Normal watchlist':
-        watchlist_directory = "C:\\Users\\Shamitha\\Desktop\\MAD using watchlist\\bhavitha_211IT044\\bhavitha_211IT044_Watchlist"
+        watchlist_directory = "Watchlist"
         # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
         # if input_image_path:
         # st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
@@ -114,7 +114,7 @@ def main():
 
     
     else:
-        watchlist_directory = "C:\\Users\\Shamitha\\Desktop\\MAD using watchlist\\d"
+        watchlist_directory = "M_watchlist"
         # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
         if input_image_path is not None:
             if st.button('Detect Similarity'):
