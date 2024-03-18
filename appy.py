@@ -3,10 +3,25 @@ import cv2
 import dlib
 import face_recognition
 import streamlit as st
+import requests
+
+
+url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
+
+def download_file(url, file_path):
+    response = requests.get(url)
+    with open(file_path, "wb") as f:
+        f.write(response.content)
+
+predictor_path = "shape_predictor_68_face_landmarks.dat"
+
+if not os.path.exists(predictor_path):
+    download_file(url, predictor_path)
 
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+#predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor(predictor_path)
 
 def load_watchlist_encodings(watchlist_directory):
     watchlist_encodings = []
