@@ -6,7 +6,7 @@ import streamlit as st
 
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("C:\\Users\\Shamitha\\Desktop\\MAD using watchlist\\shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 def load_watchlist_encodings(watchlist_directory):
     watchlist_encodings = []
