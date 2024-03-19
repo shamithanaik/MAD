@@ -5,7 +5,7 @@ import face_recognition
 import streamlit as st
 import requests
 
-st.slidebar.image("logo.png", caption='Image Caption', use_column_width=True)
+# st.slidebar.image("logo.png", caption='Image Caption', use_column_width=True)
 # Developer Names
 st.sidebar.title('Developers:')
 st.sidebar.title('Information Technology NITK')
