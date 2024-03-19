@@ -126,12 +126,13 @@ def main():
     st.sidebar.write("Pari Poptani - 211IT045")
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
+        
         st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
+        
 
     watchlist_choice = st.radio("Which watchlist do you want to use for similarity comparison?",
                                 ('Normal watchlist', 'Expressions watchlist'))
-
-      if watchlist_choice == 'Normal watchlist':
+    if watchlist_choice == 'Normal watchlist':
         watchlist_directory = "Watchlist"
         # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
         # if input_image_path:
@@ -150,6 +151,8 @@ def main():
                 st.write("Similarity scores with watchlist images:")
                 for idx, score in enumerate(similarity_scores):
                     st.write(f"Watchlist image {idx + 1}: {score}")
+
+      
 
 if __name__ == "__main__":
     main()
