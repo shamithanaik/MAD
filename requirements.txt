@@ -1,5 +1,5 @@
 dlib-bin
-opencv_python
+opencv-python
 streamlit
 face_recognition @ git+https://github.com/shamithanaik/face_recognition
 
