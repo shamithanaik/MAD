@@ -101,9 +101,9 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
 def main():
 
      st.title("Face Similarity Detection")
-    st.markdown(
+     st.markdown(
         """
-       <style>
+        <style>
             .stApp {
                 background-image: url("background.jpg");
                 background-size: cover;
