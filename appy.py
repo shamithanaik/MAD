@@ -121,19 +121,7 @@ def main():
                 for idx, score in enumerate(similarity_scores):
                     st.write(f"Watchlist image {idx + 1}: {score}")
    
-    st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("backgorund.jpg")
-    }
-   .sidebar .sidebar-content {
-        background: url("backgorund.jpg")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    
 
 
 if __name__ == "__main__":
