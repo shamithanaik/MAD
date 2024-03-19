@@ -102,7 +102,7 @@ def main():
 
      st.title("Face Similarity Detection")
      st.markdown(
-        """
+         """
         <style>
             .stApp {
                 background-image: url("background.jpg");
@@ -113,7 +113,7 @@ def main():
         """,
         unsafe_allow_html=True
     )
-
+    
     #st.sidebar.image('logo.png')
     st.sidebar.title("Department of Information Technology")
     st.sidebar.title("Developed by:")
