@@ -139,16 +139,7 @@ def main():
                 st.write("Similarity scores with watchlist images:")
                 for idx, score in enumerate(similarity_scores):
                     st.write(f"Watchlist image {idx + 1}: {score}")
-    st.set_theme(
-    {
-        "primary": "#FF5722",  # A bright color for primary elements
-        "success": "#4CAF50",  # A bright color for success elements
-        "info": "#2196F3",     # A bright color for informational elements
-        "warning": "#FFC107",  # A bright color for warning elements
-        "danger": "#F44336",   # A bright color for danger elements
-        "font": "sans-serif"   # Font style
-    }
-)
+   
     
 
 
