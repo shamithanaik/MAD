@@ -23,7 +23,7 @@ st.sidebar.write("Pari Poptani - 211IT045")
 #     else:
 #         return False
 
-predictor_path = "shape_predictor_68_face_landmarks.dat"
+# predictor_path = "shape_predictor_68_face_landmarks.dat"
 
 # if not os.path.exists(predictor_path):
 #     st.write("Downloading shape predictor file...")
@@ -33,7 +33,7 @@ predictor_path = "shape_predictor_68_face_landmarks.dat"
 #         st.error("Failed to download shape predictor file.")
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor(predictor_path)
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 def load_watchlist_encodings(watchlist_directory):
     watchlist_encodings = []
