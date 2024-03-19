@@ -12,7 +12,8 @@ st.sidebar.title('Information Technology NITK')
 st.sidebar.write("Shamitha Naik - 211IT086")
 st.sidebar.write("Bhavitha Naramamidi - 211IT044")
 st.sidebar.write("Pari Poptani - 211IT045")
-st.slidebar.image("logo.png", caption='Image Caption', use_column_width=True)
+# st.sidebar.image("logo.png", caption='Image Caption', use_column_width=True)
+
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
