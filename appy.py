@@ -99,7 +99,27 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
     return similarity_scores
 
 def main():
-    st.title("Face Similarity Detection")
+
+     st.title("Face Similarity Detection")
+    st.markdown(
+        """
+       <style>
+            .stApp {
+                background-image: url("background.jpg");
+                background-size: cover;
+                font-size: 20px; /* Change the font size as desired */
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.sidebar.image('logo.png', width=100)
+    st.sidebar.title("Developed by:")
+    st.sidebar.write("Shamitha Naik  -  211IT086")
+    st.sidebar.write("Bhavitha Naramamidi - 211IT044")
+    st.sidebar.write("Pari Poptani - 211IT045")
+
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
         st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
