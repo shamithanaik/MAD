@@ -101,6 +101,11 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
 def main():
 
      st.title("Face Similarity Detection")
+     st.sidebar.title("Department of Information Technology")
+     st.sidebar.title("Developed by:")
+     st.sidebar.write("Shamitha Naik  -  211IT086")
+     st.sidebar.write("Bhavitha Naramamidi - 211IT044")
+     st.sidebar.write("Pari Poptani - 211IT045")
      st.markdown(
          """
         <style>
@@ -115,11 +120,7 @@ def main():
     )
     
     #st.sidebar.image('logo.png')
-    st.sidebar.title("Department of Information Technology")
-    st.sidebar.title("Developed by:")
-    st.sidebar.write("Shamitha Naik  -  211IT086")
-    st.sidebar.write("Bhavitha Naramamidi - 211IT044")
-    st.sidebar.write("Pari Poptani - 211IT045")
+   
 
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
