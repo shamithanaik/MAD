@@ -5,15 +5,7 @@ import face_recognition
 import streamlit as st
 import requests
 
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #000000; /* Set your desired background color */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True )
+st.image("backgorund.jpg", caption='Image Caption', use_column_width=True)
 # Developer Names
 st.sidebar.title('Developers:')
 st.sidebar.title('Information Technology NITK')
