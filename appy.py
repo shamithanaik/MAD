@@ -98,6 +98,16 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
     return similarity_scores
 
 def main():
+    st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f2f6; /* Set your desired background color */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True )
+
     st.title("Face Similarity Detection")
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
