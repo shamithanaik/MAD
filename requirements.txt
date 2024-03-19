@@ -1,6 +1,11 @@
-dlib==19.24.2
-face_recognition==1.3.0
-opencv_python==4.9.0.80
-streamlit==1.32.0
+dlib-bin
+opencv_python
+streamlit
+face_recognition @ git+https://github.com/your_username/face_recognition
 
 
+#dlib-bin==19.24.2
+#face_recognition==1.3.0
+#opencv_python==4.9.0.80
+#streamlit==1.32.0
+#face_recognition @ git+https://github.com/your_username/face_recognition
