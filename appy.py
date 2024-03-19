@@ -98,63 +98,7 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
 
     return similarity_scores
 
-# def main():
 
-#      st.title("Face Similarity Detection")
-#      st.sidebar.title("Department of Information Technology")
-#      st.sidebar.title("Developed by:")
-#      st.sidebar.write("Shamitha Naik  -  211IT086")
-#      st.sidebar.write("Bhavitha Naramamidi - 211IT044")
-#      st.sidebar.write("Pari Poptani - 211IT045")
-#      st.markdown(
-#          """
-#         <style>
-#             .stApp {
-#                 background-image: url("background.jpg");
-#                 background-size: cover;
-#                 font-size: 20px; /* Change the font size as desired */
-#             }
-#         </style>
-#         """,
-#         unsafe_allow_html=True
-#     )
-    
-#     #st.sidebar.image('logo.png')
-   
-
-#     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
-#     if input_image_path:
-#         st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
-
-#     watchlist_choice = st.radio("Which watchlist do you want to use for similarity comparison?",
-#                                 ('Normal watchlist', 'Expressions watchlist'))
-
-#     if watchlist_choice == 'Normal watchlist':
-#         watchlist_directory = "Watchlist"
-#         # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
-#         # if input_image_path:
-#         # st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
-#         if st.button('Detect Similarity'):
-#             output_image_path = detect_face_similarity(input_image_path, watchlist_directory)
-#             compare_with_watchlist(output_image_path, watchlist_directory)
-
-    
-#     else:
-#         watchlist_directory = "M_watchlist"
-#         # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
-#         if input_image_path is not None:
-#             if st.button('Detect Similarity'):
-#                 similarity_scores = detect_similarity_with_watchlist(input_image_path, watchlist_directory)
-#                 st.write("Similarity scores with watchlist images:")
-#                 for idx, score in enumerate(similarity_scores):
-#                     st.write(f"Watchlist image {idx + 1}: {score}")
-    # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
-
-    # if input_image_path:
-    #     st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
-    #     if st.button('Detect Similarity'):
-    #         output_image_path = detect_face_similarity(input_image_path, watchlist_directory)
-    #         compare_with_watchlist(output_image_path, watchlist_directory)
 def main():
     st.title("Face Similarity Detection")
     st.sidebar.title("Department of Information Technology")
@@ -175,7 +119,11 @@ def main():
         """,
         unsafe_allow_html=True
     )
-
+    st.sidebar.title("Department of Information Technology")
+    st.sidebar.title("Developed by:")
+    st.sidebar.write("Shamitha Naik  -  211IT086")
+    st.sidebar.write("Bhavitha Naramamidi - 211IT044")
+    st.sidebar.write("Pari Poptani - 211IT045")
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
         st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
@@ -183,14 +131,19 @@ def main():
     watchlist_choice = st.radio("Which watchlist do you want to use for similarity comparison?",
                                 ('Normal watchlist', 'Expressions watchlist'))
 
-    if watchlist_choice == 'Normal watchlist':
+      if watchlist_choice == 'Normal watchlist':
         watchlist_directory = "Watchlist"
+        # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
+        # if input_image_path:
+        # st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
         if st.button('Detect Similarity'):
             output_image_path = detect_face_similarity(input_image_path, watchlist_directory)
             compare_with_watchlist(output_image_path, watchlist_directory)
 
+    
     else:
         watchlist_directory = "M_watchlist"
+        # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
         if input_image_path is not None:
             if st.button('Detect Similarity'):
                 similarity_scores = detect_similarity_with_watchlist(input_image_path, watchlist_directory)
