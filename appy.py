@@ -12,7 +12,7 @@ st.sidebar.title('Information Technology NITK')
 st.sidebar.write("Shamitha Naik - 211IT086")
 st.sidebar.write("Bhavitha Naramamidi - 211IT044")
 st.sidebar.write("Pari Poptani - 211IT045")
- st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65hsCV9j2UN6McHOyjyECReas2FAYqeDmZg&usqp=CAU", caption='Image Caption', use_column_width=True)
+st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65hsCV9j2UN6McHOyjyECReas2FAYqeDmZg&usqp=CAU", caption='Image Caption', use_column_width=True)
 
 
 detector = dlib.get_frontal_face_detector()
