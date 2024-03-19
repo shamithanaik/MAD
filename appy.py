@@ -119,11 +119,6 @@ def main():
         """,
         unsafe_allow_html=True
     )
-    st.sidebar.title("Department of Information Technology")
-    st.sidebar.title("Developed by:")
-    st.sidebar.write("Shamitha Naik  -  211IT086")
-    st.sidebar.write("Bhavitha Naramamidi - 211IT044")
-    st.sidebar.write("Pari Poptani - 211IT045")
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
         
