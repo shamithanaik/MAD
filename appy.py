@@ -5,12 +5,34 @@ import face_recognition
 import streamlit as st
 import requests
 
+# Developer Names
+st.sidebar.title('Developers:')
+st.sidebar.write("Shamitha Naik - 211IT086")
+st.sidebar.write("Bhavitha Naramamidi - 211IT044")
+st.sidebar.write("Pari Poptani - 211IT045")
 
-#url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
+url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
+
+def download_file(url, file_path):
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open(file_path, "wb") as f:
+            f.write(response.content)
+        return True
+    else:
+        return False
+
+predictor_path = "shape_predictor_68_face_landmarks.dat"
+
+if not os.path.exists(predictor_path):
+    st.write("Downloading shape predictor file...")
+    if download_file(url, predictor_path):
+        st.write("Shape predictor file downloaded successfully.")
+    else:
+        st.error("Failed to download shape predictor file.")
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
-
+predictor = dlib.shape_predictor(predictor_path)
 
 def load_watchlist_encodings(watchlist_directory):
     watchlist_encodings = []
@@ -21,7 +43,6 @@ def load_watchlist_encodings(watchlist_directory):
             encoding = face_recognition.face_encodings(image)[0]
             watchlist_encodings.append(encoding)
     return watchlist_encodings
-
 
 def detect_face_similarity(input_image, watchlist_directory, threshold=0.6):
     with open("temp_image.jpg", "wb") as f:
@@ -35,7 +56,6 @@ def detect_face_similarity(input_image, watchlist_directory, threshold=0.6):
         x1, y1 = face.left(), face.top()
         x2, y2 = face.right(), face.bottom()
 
-        
         face_encoding = face_recognition.face_encodings(image, [(y1, x2, y2, x1)])[0]
 
         for idx, watchlist_encoding in enumerate(watchlist_encodings):
@@ -49,13 +69,11 @@ def detect_face_similarity(input_image, watchlist_directory, threshold=0.6):
             y = landmarks.part(n).y
             cv2.circle(image, (x, y), 1, (0, 255, 0), -1)
 
-    
         output_image_path = "temp_image_output.jpg"
         cv2.imwrite(output_image_path, image)
         st.image(output_image_path, caption='Output image with facial landmarks', use_column_width=True)
 
         return output_image_path  
-
 
 def compare_with_watchlist(input_image_path, watchlist_directory):
     known_image = face_recognition.load_image_file(input_image_path)
@@ -86,7 +104,6 @@ def compare_with_watchlist(input_image_path, watchlist_directory):
         st.write("No similar image found in the watchlist directory.")
 
 def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
-
     watchlist_encodings = load_watchlist_encodings(watchlist_directory)
     input_image = face_recognition.load_image_file(input_image_path)
     input_encoding = face_recognition.face_encodings(input_image)[0]
@@ -98,48 +115,23 @@ def detect_similarity_with_watchlist(input_image_path, watchlist_directory):
 
     return similarity_scores
 
-
 def main():
     st.title("Face Similarity Detection")
-    st.sidebar.title("Department of Information Technology")
-    st.sidebar.title("Developed by:")
-    st.sidebar.write("Shamitha Naik  -  211IT086")
-    st.sidebar.write("Bhavitha Naramamidi - 211IT044")
-    st.sidebar.write("Pari Poptani - 211IT045")
-    
-    st.markdown(
-        """
-        <style>
-            .stApp {
-                background-image: url("background.jpg");
-                background-size: cover;
-                font-size: 20px; /* Change the font size as desired */
-            }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
     input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
     if input_image_path:
-        
         st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
-        
 
     watchlist_choice = st.radio("Which watchlist do you want to use for similarity comparison?",
                                 ('Normal watchlist', 'Expressions watchlist'))
+
     if watchlist_choice == 'Normal watchlist':
         watchlist_directory = "Watchlist"
-        # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
-        # if input_image_path:
-        # st.image(input_image_path, caption='Uploaded Image', use_column_width=True)
         if st.button('Detect Similarity'):
             output_image_path = detect_face_similarity(input_image_path, watchlist_directory)
             compare_with_watchlist(output_image_path, watchlist_directory)
-
     
     else:
         watchlist_directory = "M_watchlist"
-        # input_image_path = st.file_uploader("Upload an image", type=["jpg", "png"])
         if input_image_path is not None:
             if st.button('Detect Similarity'):
                 similarity_scores = detect_similarity_with_watchlist(input_image_path, watchlist_directory)
@@ -147,11 +139,17 @@ def main():
                 for idx, score in enumerate(similarity_scores):
                     st.write(f"Watchlist image {idx + 1}: {score}")
 
-      
-
-if __name__ == "__main__":
-    main()
-
+# Change the theme and background color
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: linear-gradient(135deg, #c8e6c9, #f8bbd0);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 if __name__ == "__main__":
     main()
