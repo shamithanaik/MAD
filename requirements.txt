@@ -1,7 +1,7 @@
 dlib-bin
 opencv_python
 streamlit
-face_recognition @ git+https://github.com/your_username/face_recognition
+face_recognition @ git+https://github.com/shamithanaik/face_recognition
 
 
 #dlib-bin==19.24.2
