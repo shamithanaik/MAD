@@ -12,25 +12,25 @@ st.sidebar.write("Shamitha Naik - 211IT086")
 st.sidebar.write("Bhavitha Naramamidi - 211IT044")
 st.sidebar.write("Pari Poptani - 211IT045")
 
-url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
+# url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
 
-def download_file(url, file_path):
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(file_path, "wb") as f:
-            f.write(response.content)
-        return True
-    else:
-        return False
+# def download_file(url, file_path):
+#     response = requests.get(url)
+#     if response.status_code == 200:
+#         with open(file_path, "wb") as f:
+#             f.write(response.content)
+#         return True
+#     else:
+#         return False
 
 predictor_path = "shape_predictor_68_face_landmarks.dat"
 
-if not os.path.exists(predictor_path):
-    st.write("Downloading shape predictor file...")
-    if download_file(url, predictor_path):
-        st.write("Shape predictor file downloaded successfully.")
-    else:
-        st.error("Failed to download shape predictor file.")
+# if not os.path.exists(predictor_path):
+#     st.write("Downloading shape predictor file...")
+#     if download_file(url, predictor_path):
+#         st.write("Shape predictor file downloaded successfully.")
+#     else:
+#         st.error("Failed to download shape predictor file.")
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
@@ -141,15 +141,15 @@ def main():
                     st.write(f"Watchlist image {idx + 1}: {score}")
 
 # Change the theme and background color
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: linear-gradient(135deg, #c8e6c9, #f8bbd0);
+st.set_theme(
+    {
+        "primary": "#FF5722",  # A bright color for primary elements
+        "success": "#4CAF50",  # A bright color for success elements
+        "info": "#2196F3",     # A bright color for informational elements
+        "warning": "#FFC107",  # A bright color for warning elements
+        "danger": "#F44336",   # A bright color for danger elements
+        "font": "sans-serif"   # Font style
     }
-    </style>
-    """,
-    unsafe_allow_html=True
 )
 
 if __name__ == "__main__":
