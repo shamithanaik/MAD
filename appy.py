@@ -114,7 +114,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.sidebar.image('logo.png')
+    #st.sidebar.image('logo.png')
     st.sidebar.title("Department of Information Technology")
     st.sidebar.title("Developed by:")
     st.sidebar.write("Shamitha Naik  -  211IT086")
