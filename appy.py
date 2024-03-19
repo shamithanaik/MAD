@@ -7,6 +7,7 @@ import requests
 
 # Developer Names
 st.sidebar.title('Developers:')
+st.sidebar.title('Information Technology NITK')
 st.sidebar.write("Shamitha Naik - 211IT086")
 st.sidebar.write("Bhavitha Naramamidi - 211IT044")
 st.sidebar.write("Pari Poptani - 211IT045")
