@@ -6,33 +6,11 @@ import streamlit as st
 import requests
 
 
-url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
-
-
-
-
-
-def download_file(url, file_path):
-    response = requests.get(url)
-    if response.status_code == 200:
-        with open(file_path, "wb") as f:
-            f.write(response.content)
-        return True
-    else:
-        return False
-
-predictor_path = "shape_predictor_68_face_landmarks.dat"
-
-if not os.path.exists(predictor_path):
-    st.write("Downloading shape predictor file...")
-    if download_file(url, predictor_path):
-        st.write("Shape predictor file downloaded successfully.")
-    else:
-        st.error("Failed to download shape predictor file.")
+#url = "https://drive.google.com/file/d/1Vzl8GJsUJr3-wCkL3DcWoFPfJs_Ufi-A/view?usp=sharing"
 
 detector = dlib.get_frontal_face_detector()
-#predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
-predictor = dlib.shape_predictor(predictor_path)
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+
 
 def load_watchlist_encodings(watchlist_directory):
     watchlist_encodings = []
